@@ -1,0 +1,44 @@
+#AboutKleiderSchieber{
+    position: absolute;
+    margin-top: 120px;
+    width: 98%;
+}
+#AboutContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#AboutHeader1 {
+    text-align: center;
+    font-size: 35px;
+    
+}
+#AboutHeaderSubtitle{
+    text-align: center;
+    font-size: 20px;
+    margin-top: 20px;
+}
+.stepImages{
+height: 200px;
+margin-left: 10px;
+}
+#stepsSections{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 20px;
+}
+.StepContainer{
+    display: flex;
+    flex-direction: column;
+}
+#stepsHeadline{
+    font-size: 25px;
+}
+#stepsSellButton{
+    margin-top: 30px;
+    text-align: center;
+}
+
