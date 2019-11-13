@@ -5,6 +5,7 @@ body{
 :root{
     --bg-colorTone: #41839f;
     --grey-tone: #cccccc;
+    --dark-greyTone: #585858;
 }
 #fixedHeader{
     position: fixed;
@@ -51,7 +52,7 @@ body{
 #help{
     align-items: center;
 }
-#aboutKleiderSchieber{
+#aboutKleiderSchieberButton{
     border: 2px solid var(--bg-colorTone);
     padding: 12px;
     border-radius: 22px;
@@ -117,6 +118,65 @@ form:hover .fa{
     background: var(--grey-tone);
     color: white;
 }
+
+/* ------------------------------Seite mit inforamtionen über Kleiderkreisel--------------------------------------------------------- */
+
+#AboutKleiderSchieber{
+    display: none;
+    position: absolute;
+    margin-top: 160px;
+    width: 98%;
+}
+#AboutContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#AboutHeader1 {
+    text-align: center;
+    font-size: 35px;
+    color: var(--bg-colorTone);
+    
+}
+#AboutHeaderSubtitle{
+    text-align: center;
+    font-size: 20px;
+    margin-top: 20px;
+    color: var(--dark-greyTone);
+}
+.stepImages{
+height: 200px;
+margin-left: 10px;
+}
+#stepsSections{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 20px;
+}
+.StepContainer{
+    display: flex;
+    flex-direction: column;
+}
+#stepsHeadline{
+    font-size: 25px;
+    color: var(--dark-greyTone);
+}
+#stepsSellButton{
+    margin-top: 30px;
+    text-align: center;
+    border: 2px solid var(--bg-colorTone);
+    padding: 12px;
+    border-radius: 22px;
+    background-color: var(--bg-colorTone);
+    color: white;
+    cursor: pointer;
+    width: 120px;
+    margin-left: 41%;
+}
+
 
 /* ------------------------------aufwahl mann frau oder kind--------------------------------------------------------- */
 
@@ -228,7 +288,7 @@ form:hover .fa{
 
 
 /*----------------------------------------- Auswahl Mann, Frau, Kind--------------------------------------------------- */
-.genderSelected{
+#genderSelected{
     z-index: 10;
     display: none;
     width: 30%;
@@ -244,6 +304,7 @@ form:hover .fa{
     position: fixed;
 }
 .genderItemSelected{
+    cursor: pointer;
     margin-top: 25px;
     border-bottom: 1.5px solid var(--grey-tone);
     padding-bottom: 19px;
