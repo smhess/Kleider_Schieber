@@ -21,7 +21,7 @@
             </div>
             <div class="navSections" id="search1">
                  <form action="">
-                         <input type="search" placeholder="Artikel finden" id="searchArticle">
+                         <input id="SearchInput" type="search" placeholder="Artikel finden" id="searchArticle">
                          <i class="fa fa-search"></i>
                        </form>
              </div>
@@ -68,57 +68,109 @@
             </div>
     </div>
 
-   <div id="mitte">
-        <div id="Startseite">
-                <div class="StartseiteSides" id="descriptionLeft">
-                    <div id="DescriptionKleiderSchieber">
-                        Bereit, deinen Kleiderschrank auszusortieren?
-                    </div>
-                    <div id="SellNow"> Jetzt verkaufen </div>
+    <div id="MainPart">
+        <div id="mitte">
+                <div id="Startseite">
+                        <div class="StartseiteSides" id="descriptionLeft">
+                            <div id="DescriptionKleiderSchieber">
+                                Bereit, deinen Kleiderschrank auszusortieren?
+                            </div>
+                            <div id="SellNow"> Jetzt verkaufen </div>
+                        </div>
+                        <div class="StartseiteSides" id="pictureRight">
+                            <img src="Startseite.jpg" id="pictureStartseite">
+                        </div>
+                        <div id="Neuigkeiten"></div>     
                 </div>
-                <div class="StartseiteSides" id="pictureRight">
-                    <img src="Startseite.jpg" id="pictureStartseite">
-                </div>
-        </div>
-        <div id="Neuigkeiten"></div>     
-    </div>
-    <!----------- Login oder Registrieren Seite  ---------------->
-
-    <!----------- Informationen über Kleider Schieber Seite  ---------------->
-    <div id="AboutKleiderSchieber">
-        <div id="AboutContainer">
-            <div id="AboutHeader">
-                <div id="AboutHeader1"><strong>Kleider - Schieber ist deine <br> Community für Secondhand</strong></div>
-                <div id="AboutHeaderSubtitle">100 Millionen Mitglieder und zahlreich verschiedene Outfits. <br> Hier bist du genau richtig.</div>
             </div>
-            <br/>
-            <div id="Steps">
-                <div id="stepsHeadline"><strong>Einfaches Verkaufen</strong></div>
-                <div id="stepsSections"> 
-                    <div id="stepOne">
-                        <div class="StepContainer">
-                            <img src="erstesBild.png" class="stepImages">
-                            1. Kostenlos hochladen
-                        </div>
+            <!----------- Login oder Registrieren Seite  ---------------->
+
+            <div class="LRContainer">
+                <div id='test'>
+                    <div class="LoginRegister" id="LoginSelected">
+                            <div class="login_register_variables">
+                                <h1 id="heading_login">
+                                    Einloggen
+                                </h1>
+                            </div>
+                            <div class="login_register_variables">
+                                 <input class="LRinput" placeholder="Benutzername/E-Mail" type="text" name="username" size="30" >
+                            </div>
+                            <div class="login_register_variables">
+                                <input class="LRinput" placeholder="Passwort" type="password" id="passwort" name="password" size="30" >
+                            </div>
+                            <div class="login_register_variables">
+                                <button type="submit" id="login_button" name="Login" value="Login" size="30">Login</button>
+                            </div>
+                            <div class="login_register_variables">
+                                <a href="" class="problem_messages">Passwort vergessen?</a>
+                            </div>
+                            <div class="login_register_variables">
+                                <a href="" class="problem_messages">Es gibt ein Problem?</a>
+                            </div>
                     </div>
-                    <div id="stepTwo">
-                        <div class="StepContainer">
-                            <img src="zweitesBild.png" class="stepImages">
-                            2. Verkaufen & versenden
-                        </div>
-                    </div>
-                    <div id="stepThree">
-                        <div class="StepContainer">
-                            <img src="drittesBild.png" class="stepImages">
-                            3. Zahltag!
-                        </div>
+    
+    
+                    <div class="LoginRegister" id="RegistrationSelected">
+                            <div class="login_register_variables">
+                                    <h1 id="heading_login">
+                                        Registrieren
+                                    </h1>
+                                </div>
+                                <div class="login_register_variables">
+                                     <input class="LRinput" placeholder="Mitgliedsname" type="text" name="username_new" size="30" >
+                                </div>
+                                <div class="login_register_variables">
+                                    <input class="LRinput" placeholder="E-Mail-Adresse" type="email" name="email" size = "30" >
+                                </div>
+                                <div class="login_register_variables">
+                                    <input class="LRinput" placeholder="Passwort" type="password" name="password" size="30" >
+                                </div>
+                                <div class="login_register_variables">
+                                    <button type="submit" id="login_button" name="Registrieren" value="Registrieren" size="30">Registrieren</button>
+                                </div>
+                                <div class="login_register_variables">
+                                    <a href="" class="problem_messages">Es gibt ein Problem?</a>
+                                </div>
                     </div>
                 </div>
-                <div id="stepsSellButton">Jetzt verkaufen</div>
+                </div>
+
+            <!----------- Informationen über Kleider Schieber Seite  ---------------->
+            <div id="AboutKleiderSchieber">
+                <div id="AboutContainer">
+                    <div id="AboutHeader">
+                        <div id="AboutHeader1"><strong>Kleider - Schieber ist deine <br> Community für Secondhand</strong></div>
+                        <div id="AboutHeaderSubtitle">100 Millionen Mitglieder und zahlreich verschiedene Outfits. <br> Hier bist du genau richtig.</div>
+                    </div>
+                    <br/>
+                    <div id="Steps">
+                        <div id="stepsHeadline"><strong>Einfaches Verkaufen</strong></div>
+                        <div id="stepsSections"> 
+                            <div id="stepOne">
+                                <div class="StepContainer">
+                                    <img src="erstesBild.png" class="stepImages">
+                                    1. Kostenlos hochladen
+                                </div>
+                            </div>
+                            <div id="stepTwo">
+                                <div class="StepContainer">
+                                    <img src="zweitesBild.png" class="stepImages">
+                                    2. Verkaufen & versenden
+                                </div>
+                            </div>
+                            <div id="stepThree">
+                                <div class="StepContainer">
+                                    <img src="drittesBild.png" class="stepImages">
+                                    3. Zahltag!
+                                </div>
+                            </div>
+                        </div>
+                        <div id="stepsSellButton">Jetzt verkaufen</div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-
    
 
 </body>

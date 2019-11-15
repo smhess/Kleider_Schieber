@@ -1,6 +1,6 @@
 /* author Sarah Hess */
 body{
-
+    margin-top: 0px;
 }
 :root{
     --bg-colorTone: #41839f;
@@ -48,6 +48,7 @@ body{
     color: var(--bg-colorTone);
     font-size: 35px;
     font-weight: 600;
+    cursor: pointer;
 }
 #help{
     align-items: center;
@@ -60,7 +61,7 @@ body{
     color: white;
     cursor: pointer;
 }
-form{
+/* form{
     position: relative;
     top: 50%;
     left: 50%;
@@ -73,9 +74,9 @@ form{
     border-radius: 25px;
     border: 4px solid white;
     padding: 5px;
-}
+} */
 
-input{
+#SearchInput{
     position: absolute;
     top: 0;
     left: 0;
@@ -105,7 +106,7 @@ input{
     transition: all 1s;
 }
 
-form:hover{
+/* form:hover{
     width: 200px;
     cursor: pointer;
 }
@@ -117,7 +118,7 @@ form:hover input{
 form:hover .fa{
     background: var(--grey-tone);
     color: white;
-}
+} */
 
 /* ------------------------------Seite mit inforamtionen über Kleiderkreisel--------------------------------------------------------- */
 
@@ -191,7 +192,8 @@ margin-left: 10px;
     cursor: pointer;
 }
 .gender{
-    padding: 50px;
+    padding-left: 50px;
+    padding-right: 50px;
 }
 /*----------------------------------------- Startseite der webseite--------------------------------------------------- */
 #mitte{
@@ -285,14 +287,63 @@ margin-left: 10px;
 
 /* -------------------------login/registrieren neue Seite---------------------------------- */
 
+.LoginRegister {
+    background-color: white;
+    /* opacity: 0.5; */
+    border-width: 0.1px;
+    border-style: solid;
+    border-color: var(--grey-tone);
+    justify-content: center;
+    width: 450px;
+    height: 400px;
+}
+#test{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.LRContainer {
+    margin-top: 170px;
+    position: absolute;
+    width: 98%;
+    display: none;
+}
 
+.login_register_variables {
+    display:flex;
+    justify-content: center;
+    margin-top: 13px;
+
+}
+
+#heading_login {
+    color: var(--dark-greyTone);
+}
+
+#login_button {
+    background-color: var(--bg-colorTone);
+    color: white;
+    border-style: none;
+    border-radius: 10px;
+}
+
+.problem_messages {
+    color: var(--bg-colorTone);
+}
+
+.LRinput {
+    border: 0;
+    outline: 0;
+    background: transparent;
+    border-bottom: 1px solid black;
+}
 
 /*----------------------------------------- Auswahl Mann, Frau, Kind--------------------------------------------------- */
 #genderSelected{
     z-index: 10;
     display: none;
     width: 30%;
-    height: 44%;
+    height: auto;
     text-align: center;
     background-color: white;
     position: absolute;
