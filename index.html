@@ -75,7 +75,7 @@
                             <div id="DescriptionKleiderSchieber">
                                 Bereit, deinen Kleiderschrank auszusortieren?
                             </div>
-                            <div id="SellNow"> Jetzt verkaufen </div>
+                            <div class="SellNow"> Registriere dich/ Logge dich ein um deine Klamotten zu verkaufen </div>
                         </div>
                         <div class="StartseiteSides" id="pictureRight">
                             <img src="Startseite.jpg" id="pictureStartseite">
@@ -87,56 +87,60 @@
 
             <div class="LRContainer">
                 <div id='test'>
-                    <div class="LoginRegister" id="LoginSelected">
-                            <div class="login_register_variables">
-                                <h1 id="heading_login">
-                                    Einloggen
-                                </h1>
-                            </div>
-                            <div class="login_register_variables">
-                                 <input class="LRinput" placeholder="Benutzername/E-Mail" type="text" name="username" size="30" >
-                            </div>
-                            <div class="login_register_variables">
-                                <input class="LRinput" placeholder="Passwort" type="password" id="passwort" name="password" size="30" >
-                            </div>
-                            <div class="login_register_variables">
-                                <button type="submit" id="login_button" name="Login" value="Login" size="30">Login</button>
-                            </div>
-                            <div class="login_register_variables">
-                                <a href="" class="problem_messages">Passwort vergessen?</a>
-                            </div>
-                            <div class="login_register_variables">
-                                <a href="" class="problem_messages">Es gibt ein Problem?</a>
-                            </div>
-                    </div>
-    
-    
-                    <div class="LoginRegister" id="RegistrationSelected">
-                            <div class="login_register_variables">
+                    <!-- <form id="LoginForm" action="login.php" method="POST"> -->
+                        <div class="LoginRegister" id="LoginSelected">
+                                <div class="login_register_variables">
+                                    <h1 id="heading_login">
+                                        Einloggen
+                                    </h1>
+                                 </div>
+                                <div class="login_register_variables">
+                                    <input class="LRinput" id="InputLoginName" placeholder="Benutzername" type="text" name="username" size="30" >
+                                </div>
+                                <div class="login_register_variables">
+                                    <input class="LRinput" id="InputLoginPasswort" placeholder="Passwort" type="password" id="passwort" name="password" size="30" >
+                                </div>
+                                <div class="login_register_variables">
+                                    <button type="submit" id="login_button" name="Login" value="Login" size="30">Login</button>
+                                </div>
+                                <div class="login_register_variables">
+                                    <a href="" class="problem_messages">Passwort vergessen?</a>
+                                </div>
+                                <div class="login_register_variables">
+                                    <a href="" class="problem_messages">Es gibt ein Problem?</a>
+                                </div>
+                        </div>
+                    <!-- </form> -->
+
+                    <!-- <form id="RegistrationForm" action="register.php" method="POST"> -->
+                        <div class="LoginRegister" id="RegistrationSelected" action="register.php">
+                                <div class="login_register_variables">
                                     <h1 id="heading_login">
                                         Registrieren
                                     </h1>
                                 </div>
                                 <div class="login_register_variables">
-                                     <input class="LRinput" placeholder="Mitgliedsname" type="text" name="username_new" size="30" >
+                                     <input class="LRinput" id="InputRegisterName" placeholder="Mitgliedsname" type="text" name="username_new" size="30" >
                                 </div>
                                 <div class="login_register_variables">
-                                    <input class="LRinput" placeholder="E-Mail-Adresse" type="email" name="email" size = "30" >
+                                    <input class="LRinput" id="InputRegisterEmail" placeholder="E-Mail-Adresse" type="email" name="email" size = "30" >
                                 </div>
                                 <div class="login_register_variables">
-                                    <input class="LRinput" placeholder="Passwort" type="password" name="password" size="30" >
+                                    <input class="LRinput" id="InputRegisterPasswort" placeholder="Passwort" type="password" name="password" size="30" >
                                 </div>
                                 <div class="login_register_variables">
-                                    <button type="submit" id="login_button" name="Registrieren" value="Registrieren" size="30">Registrieren</button>
+                                    <button type="submit" id="registration_button" name="Registrieren" value="Registrieren" size="30">Registrieren</button>
                                 </div>
                                 <div class="login_register_variables">
                                     <a href="" class="problem_messages">Es gibt ein Problem?</a>
                                 </div>
-                    </div>
+                        </div>
+                    <!-- </form> -->
+
                 </div>
                 </div>
 
-            <!----------- Informationen über Kleider Schieber Seite  ---------------->
+            <!--------------------- Informationen über Kleider Schieber Seite  -------------------------->
             <div id="AboutKleiderSchieber">
                 <div id="AboutContainer">
                     <div id="AboutHeader">
@@ -166,7 +170,106 @@
                                 </div>
                             </div>
                         </div>
-                        <div id="stepsSellButton">Jetzt verkaufen</div>
+                        <div class="SellNow"> Registriere dich/ Logge dich ein um deine Klamotten zu verkaufen </div>
+                    </div>
+                </div>
+            </div>
+
+            <!---------------------------- Profil Seite  ---------------------------------->
+
+            <div id="ProfileSite">
+                <div class="flex-container">
+                    <section id="profile">
+            
+                      <div class="profile-image">
+                        <input type="file" name="filename" accept="image/gif, image/jpeg, image/png" class="profile-image-overlay">
+                          <!-- <i class="fas fa-camera"></i> -->
+                          <!-- <p class="profile-image-overlay-text">Bild hochladen</p> -->
+                        <!-- </div> -->
+                      </div>
+            
+                      <section class="profile-description border">
+                        <button class="more-button"><i class="fas fa-edit"></i></button>
+                        <p class="username"></p>
+                        <p class="description"></p>
+                        <input id="enterDescriptionToProfile" placeholder="Beschreibung hinzufügen + Enter drücken" type="text" name="beschreibung" >
+                      </section>
+            
+                      <!-- <section class="profile-rating border">
+                        <p class="secondary-title">Bewertungen</p>
+                        <div class="profile-rating-wrapper">
+                            <i class="fas fa-star rating-star"></i>
+                            <i class="fas fa-star rating-star"></i>
+                            <i class="fas fa-star rating-star"></i>
+                            <i class="fas fa-star rating-star"></i>
+                            <i class="fas fa-star-half rating-star"></i>
+                            <p class="profile-rating-count">0
+                            </p>
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+                      </section> -->
+            
+                      <section class="border">
+                        <p class="secondary-title">Verifizierte Informationen:</p>
+                        <div class="icon-text-wrapper">
+                          <i class="far fa-check-circle"></i>
+                          <p class="icon-text-wrapper-tex" id="displayMailOnProfilet"></p>
+                        </div>
+                      </section>
+            
+                      <section class="profile-information border">
+                        <button class="profile-more-button"><i class="fas fa-edit"></i></button>
+                        <p class="secondary-title">Über mich</p>
+                        <div class="icon-text-wrapper">
+                          <i class="fas fa-map-marker-alt"></i>
+                          <p class="ÜberMichWohnort"> 
+                        </p>
+                        <input id="enterPlaceToDescription" placeholder="Wohnort hinzufügen" type="text" name="wohnort" > 
+                        </div>
+                        <div class="icon-text-wrapper">
+                          <i class="far fa-clock"></i>
+                          <p class="icon-text-wrapper-text">Letzte Anmeldung: gerade eben</p>
+                        </div>
+                        <div class="icon-text-wrapper">
+                            <i class="fas fa-wifi"></i>
+                            <p class="icon-text-wrapper-text"><span class="highlighted-text"> 0 </span> Followers, <span class="highlighted-text">0</span> Following</p>
+                          </div>
+                      </section>
+            
+                      <!-- <section class="actions-wrapper border">
+                          <button class="outline-button">Nachricht</button>
+                          <button class="solid-button">Folgen</button>
+                      </section> -->
+            
+                    </section>
+
+                    <div id="content">
+                      <div class="promotion border">
+                        <p class="title">Kleidungsstücke hochladen</p>
+                        <p class="text">Hier klicken</p>
+                      </div>
+                      <p class="title posts-count">0 Artikel</p>
+                      <div id="posts-wrapper">
+                        
+                          <!-- <div class="post-wrapper">
+                              <img class="post-image">
+                              <div class="post-text-wrapper">
+                                <p class="price">12,00 €</p>
+                                <p class="size">XXL / 44 / 16</p>
+                                <p class="infoUserProduct">Helene Fischer</p>
+                              </div>
+                            </div> -->
+                              
+                            <!-- <div class="post-wrapper">
+                                <img class="post-image">
+                                <div class="post-text-wrapper">
+                                  <p class="price">12,00 €</p>
+                                  <p class="size">XXL / 44 / 16</p>
+                                  <p class="info">Helene Fischer</p>
+                                </div>
+                              </div> -->
+                              
+                      </div>
                     </div>
                 </div>
             </div>

@@ -74,25 +74,93 @@ $(document).ready(function () {
         $('#genderSelected').show();
     });
 
-    
+    /**
+     * Click Event auf die Login oder Registrieren Seite
+     * If Abfrage überprüft ob Registrieren oder Login geklick wurde
+     * Eingabe von benutzerdaten werden über Ajax ins PHP weitergeleitet und von dort in die Datenbank gespeichert
+     */
     $(document).on('click', '.SelectLR', function (event) {
-        // var test = $(event.target.parentNode.parentNode.parentNode.parentNode).find('#MainPart').find('.LRContainer');
+
         $('#LoginRegistrationPlugin').hide();
         $('.LRContainer').show();
         $('#mitte').hide();
         $('#AboutKleiderSchieber').hide();
         var SelectLR_ID = event.currentTarget.id;
         console.log(SelectLR_ID);
-        // var SelectRorL = ['LoginSelected', 'RegistrationSelected'];
         if(SelectLR_ID == 'SelectLogin'){
             console.log('login');
             $('#LoginSelected').css('display', 'block');
             $('#RegistrationSelected').css('display', 'none');
+
+            $(document).on('click', '#login_button', function(event){
+
+                var loginNutzername = $('#InputLoginName').val();
+                var loginPasswort = $('#InputLoginPasswort').val();
+  
+                console.log(loginNutzername, loginPasswort);
+                
+                  $.ajax({
+                      type: 'POST',
+                      url: 'register.php',
+                      data: {
+                      login_nutzername : loginNutzername,
+                      login_passwort : loginPasswort
+                      },
+                      success: function (msg) {
+                          console.log(msg);
+                          getRegistratedSide();
+                          
+                      },
+                      error: function (eins, zwei, err) {
+                          console.log(eins + " " + zwei + " " + err)
+                      }
+                  });
+
+
+            });
+
         }
         else if(SelectLR_ID == 'SelectRegistration'){
             console.log('registrieren');
             $('#LoginSelected').css('display', 'none');
             $('#RegistrationSelected').css('display', 'block');
+
+            $(document).on('click', '#registration_button', function(event){
+
+                var registerNutzername = $('#InputRegisterName').val();
+                var registerPasswort = $('#InputRegisterPasswort').val();
+                var registerEmaill = $('#InputRegisterEmail').val();
+  
+                console.log(registerNutzername, registerPasswort, registerEmaill);
+                
+                  $.ajax({
+                      type: 'POST',
+                      url: 'login.php',
+                      data: {
+                      register_nutzername : registerNutzername,
+                      register_passwort : registerPasswort,
+                      register_email : registerEmaill
+                      },
+                      success: function (msg) {
+                          console.log(msg);
+                          
+                          getProfileSide(registerNutzername , registerEmaill );
+                          
+                      },
+                      error: function (eins, zwei, err) {
+                          console.log(eins + " " + zwei + " " + err)
+                      }
+                  });
+
+
+            });
+
+            
+            
+            //    alert("button was clicked");
+                //Hier soll später die PHP-Funktion aufgerufen werden!
+                //$.ajax({url: "register.php", async: false});
+            //});
         }
         else{
             console.log('fehler'); 
@@ -106,7 +174,88 @@ $(document).ready(function () {
     //     // $('#RegistrationSide').css('display', 'none');
 
     // });
+    $(document).on('click', '.profile-image-overlay', function (event) {
+       console.log('bild auswahl geklickt');
+       
+    });
+    $(document).on('click', '.more-button', function (event) {
+       $('#enterDescriptionToProfile').css('display', 'block');
+       $('#enterDescriptionToProfile').val('');
+       $(document).on('keypress',function(e) {
+        if(e.which == 13) {
+         var describtionValue = $('#enterDescriptionToProfile').val(); 
+         $('.description').html(describtionValue);
+         $('#enterDescriptionToProfile').css('display', 'none');
 
+         $.ajax({
+            type: 'POST',
+            url: 'login.php',
+            data: {
+            user_Description : describtionValue
+            },
+            success: function (msg) {
+                console.log(msg);
+            },
+            error: function (eins, zwei, err) {
+                console.log(eins + " " + zwei + " " + err)
+            }
+        });
+        }
+    });
+       
+    });
+   
+    $(document).on('click', '.profile-more-button', function (event) {
+       $('#enterPlaceToDescription').css('display', 'block');
+       $('#enterPlaceToDescription').val('');
+       $(document).on('keypress',function(e) {
+        if(e.which == 13) {
+         var PlaceValue = $('#enterPlaceToDescription').val(); 
+         $('.ÜberMichWohnort').html(PlaceValue);
+         $('#enterPlaceToDescription').css('display', 'none');
+
+         $.ajax({
+            type: 'POST',
+            url: 'login.php',
+            data: {
+           user_place : PlaceValue
+            },
+            success: function (msg) {
+                console.log(msg);
+                
+            },
+            error: function (eins, zwei, err) {
+                console.log(eins + " " + zwei + " " + err)
+            }
+        });
+        }
+    });
+       
+    });
+
+    $(document).on('click', '.promotion', funtion(event){
+
+    });
+   
+
+
+    function clear(){
+        $("#RegistrationForm :input").each( function(){
+            $(this).val("");
+        });
+    }
+
+    function getProfileSide(nutzername, email){
+        console.log(nutzername, email);
+        $('#ProfileSite').siblings().hide();
+        $('#ProfileSite').show();
+        $('#displayMailOnProfilet').html(email);
+        $('.username').html(nutzername);
+    }
+
+    function getRegistratedSide(){
+
+    }
 
 
 });
