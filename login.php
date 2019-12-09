@@ -18,11 +18,10 @@
         // echo "Connected successfully";
 
     if(isset($_POST["login_nutzername"]) AND isset($_POST['login_passwort']) ){
-        if(empty($_POST["login_nutzername"]) OR empty($_POST["login_passwort"]) )) {
-            // echo ('Bitte alle Felder ausfüllen');   
+        if(empty($_POST["login_nutzername"]) OR empty($_POST["login_passwort"])) {
+            echo ('Bitte alle Felder ausfüllen');   
             die();
         }
-
 
     $username = $_POST["login_nutzername"];
     $password = $_POST["login_passwort"];
@@ -30,30 +29,34 @@
     $sql = "SELECT count(*) FROM users WHERE(username='$username' AND password='$password')";
 
     $result = $conn->query($sql);
-
     $row = $result->fetch_array(MYSQLI_NUM);
     
     if ($row [0] > 0){
-        echo ('Werte in DB vorhanden');
-    }
-    else {
-        // echo ('false');
-    }
-    //---verbindung schließen
-    // $conn->close();
+
+
+
+        $user_info = "SELECT * from users where username = '$username'";
+        $result_info = $conn->query($user_info);
+        $ans =  array("userInfo"=>array());
+        
+        while($row_info = $result_info ->fetch_assoc()){
+            array_push($ans["userInfo"] , $row_info); 
+        }
+        echo json_encode($ans);
     
-    // die();
-    
     }
-    
+}
     else{
-    
-        // echo("zuordnung projekte oder mail id nicht gesetzt");
+        echo('kein nutzername oder passwort gesetzt');  //das ist die fehlermeldung 
+        die();
     }
+
+
+
 
     if(isset($_POST["register_nutzername"]) AND isset($_POST['register_passwort']) AND isset($_POST['register_email']) ){
         if(empty($_POST["register_nutzername"]) OR empty($_POST["register_passwort"]) OR (empty($_POST["register_email"]) )) {
-            // echo ('Bitte alle Felder ausfüllen');   
+            echo ('Bitte alle Felder ausfüllen');   
             die();
         }
 
@@ -61,12 +64,13 @@
     $email = $_POST["register_email"];
     $password = $_POST["register_passwort"];
 
+ 
     $sql = "INSERT INTO users (username, email, password)
     VALUES ('$username', '$email', '$password')";
 
     $conn->query($sql);
 
-    echo ('Werte in DB eingefügt');
+    echo ('true');
 
     }
         
@@ -74,8 +78,10 @@
         // echo ('false');
     }
 
+
+
     if(isset($_POST["user_Description"])){
-        if(empty($_POST["user_Description"]))) {
+        if(empty($_POST["user_Description"])) {
             // echo ('Bitte alle Felder ausfüllen');   
             die();
         }
@@ -93,8 +99,10 @@
         // echo ('false');
     }
 
+
+
     if(isset($_POST["user_place"])){
-        if(empty($_POST["user_place"]))) {
+        if(empty($_POST["user_place"])) {
             // echo ('Bitte alle Felder ausfüllen');   
             die();
         }
@@ -108,12 +116,12 @@
     echo ('Wohnort in DB eingefügt');
 
     }
-        
+
     else{
         // echo ('false');
     }
 
-
-
+      //---verbindung schließen
+      $conn->close();
    
 ?>

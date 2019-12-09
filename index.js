@@ -3,6 +3,12 @@
  */
 $(document).ready(function () {
 
+    var nutzername = '';
+    var passwort;
+    var email = '';
+    var wohnort;
+    var profilbild;
+
 
 
     $('body').click(function (evt) {
@@ -81,10 +87,12 @@ $(document).ready(function () {
      */
     $(document).on('click', '.SelectLR', function (event) {
 
-        $('#LoginRegistrationPlugin').hide();
+        $('.LRContainer').siblings().hide();
         $('.LRContainer').show();
-        $('#mitte').hide();
-        $('#AboutKleiderSchieber').hide();
+        $('#LoginRegistrationPlugin').hide();
+        // $('.LRContainer').show();
+        // $('#mitte').hide();
+        // $('#AboutKleiderSchieber').hide();
         var SelectLR_ID = event.currentTarget.id;
         console.log(SelectLR_ID);
         if(SelectLR_ID == 'SelectLogin'){
@@ -101,14 +109,26 @@ $(document).ready(function () {
                 
                   $.ajax({
                       type: 'POST',
-                      url: 'register.php',
+                      url: 'login.php',
                       data: {
                       login_nutzername : loginNutzername,
                       login_passwort : loginPasswort
                       },
                       success: function (msg) {
-                          console.log(msg);
-                          getRegistratedSide();
+                          msg = JSON.parse(msg);
+                          if (msg){
+                            $('.LoginProfile').html('Profilseite');
+                            $('.LoginProfile').attr("id","ProfilSide");
+                          }
+                        
+                          if (msg.hasOwnProperty('userInfo')) {
+                            console.log(msg.userInfo);
+                            
+                        };
+                        
+                        nutzername = msg.userInfo[0].username;
+                        email = msg.userInfo[0].email;
+                          getProfileSide(nutzername , email);
                           
                       },
                       error: function (eins, zwei, err) {
@@ -143,6 +163,11 @@ $(document).ready(function () {
                       },
                       success: function (msg) {
                           console.log(msg);
+
+                          if (msg){
+                            $('.LoginProfile').html('Profilseite');
+                            $('.LoginProfile').attr("id","ProfilSide");
+                          }
                           
                           getProfileSide(registerNutzername , registerEmaill );
                           
@@ -176,6 +201,9 @@ $(document).ready(function () {
     // });
     $(document).on('click', '.profile-image-overlay', function (event) {
        console.log('bild auswahl geklickt');
+       var test = $('.profile-image-overlay').val();
+       console.log(test);
+       
        
     });
     $(document).on('click', '.more-button', function (event) {
@@ -233,11 +261,10 @@ $(document).ready(function () {
        
     });
 
-    $(document).on('click', '.promotion', funtion(event){
-
-    });
-   
-
+    $(document).on('click', '#ProfilSide', function (event) {
+        getProfileSide(nutzername , email );
+     });
+     
 
     function clear(){
         $("#RegistrationForm :input").each( function(){
@@ -245,7 +272,7 @@ $(document).ready(function () {
         });
     }
 
-    function getProfileSide(nutzername, email){
+    function getProfileSide(nutzername, email, bild, ){
         console.log(nutzername, email);
         $('#ProfileSite').siblings().hide();
         $('#ProfileSite').show();
@@ -253,9 +280,6 @@ $(document).ready(function () {
         $('.username').html(nutzername);
     }
 
-    function getRegistratedSide(){
-
-    }
 
 
 });
