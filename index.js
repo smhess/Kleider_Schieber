@@ -6,9 +6,9 @@ $(document).ready(function () {
     var nutzername = '';
     var passwort;
     var email = '';
-    var wohnort;
-    var profilbild;
-    var userID;
+    var wohnort = '';
+    var profilbild = '';
+    var userID = '';
 
 
     $('body').click(function (evt) {
@@ -357,6 +357,8 @@ $(document).ready(function () {
                       },
                       success: function (msg) {
                           msg = JSON.parse(msg);
+                          console.log(msg);
+                          
                           if (msg){
                             $('.LoginProfile').html('Profilseite');
                             $('.LoginProfile').attr("id","ProfilSide");
@@ -371,7 +373,7 @@ $(document).ready(function () {
                         email = msg.userInfo[0].email;
                         wohnort = msg.userInfo[0].wohnort;
                         beschreibung = msg.userInfo[0].beschreibung;
-                        beschreibung = msg.userInfo[0].id;
+                        userID = msg.userInfo[0].id;
                         profilbild = "";
                           getProfileSide(nutzername , email, wohnort, profilbild, beschreibung);
                           
@@ -407,6 +409,7 @@ $(document).ready(function () {
                       register_email : registerEmaill
                       },
                       success: function (msg) {
+                        msg = JSON.parse(msg);
                           console.log(msg);
 
                           if (msg){
@@ -423,8 +426,11 @@ $(document).ready(function () {
                         email = msg.userInfo[0].email;
                         wohnort = msg.userInfo[0].wohnort;
                         beschreibung = msg.userInfo[0].beschreibung;
-                        beschreibung = msg.userInfo[0].id;
+                        userID = msg.userInfo[0].id;
                         profilbild = "";
+
+                        console.log(userID);
+                        
                           
                           getProfileSide(registerNutzername , registerEmaill );
                           

@@ -26,28 +26,31 @@
     $username = $_POST["login_nutzername"];
     $password = $_POST["login_passwort"];
 
-    $sql = "SELECT count(*) FROM users WHERE(username='" . $username . "' AND password='" . $password . "')";
+    $countuser = 0;
 
-    $result = $conn->query($sql);
-    $row = $result->fetch_array(MYSQLI_NUM);
+    $sql = "SELECT count(*) FROM users WHERE(username='" . $username . "')";
+    $result_counting = $conn->query($sql);
+
+    while ($array_verify_user = $result_counting->fetch_assoc()){
+        $countuser = $array_verify_user["count(*)"];
+        // echo json_encode($array_verify_user);
+    }
+
+    // echo $countuser;
     
-    if ($row [0] > 0){
+    if ($countuser == '1'){
 
-
-
-        $user_info = "SELECT * from users where username = '" . $username . "'";
+        $user_info = "SELECT * from users where username = '" . $username . "' and password = '" . $password . "'";
         $result_info = $conn->query($user_info);
         $ans =  array("userInfo"=>array());
         
         while($row_info = $result_info ->fetch_assoc()){
             array_push($ans["userInfo"] , $row_info); 
         }
-        echo json_encode($ans);
+         echo json_encode($ans);
+   
+    }
     
-    }
-    else {
-        echo ('nutzername und passwort nicht vorhanden');
-    }
 }
     // else{
     //     echo('kein nutzername oder passwort gesetzt');  //das ist die fehlermeldung 
@@ -56,46 +59,80 @@
 
 
 
-    if(isset($_POST["user_Description"])){
-        // if(empty($_POST["user_Description"])) {
-        //     // echo ('Bitte alle Felder ausfüllen');   
-        //     die();
-        // }
+                if(isset($_POST["user_Description"]) AND isset($_POST["user_id"])){
+                     //if(empty($_POST["user_Description"]) AND empty($_POST["user_id"])) {
+                     //     echo ('Bitte alle Felder ausfüllen');   
+                     //    die();
+                     //}
 
-    $userDesription = $_POST["user_Description"];
+                $userDesription = $_POST["user_Description"];
+                $user_id = $_POST["user_id"];
 
-    $sql = "UPDATE users SET beschreibung = '" . $userDesription . "' where id = ";
-    $conn->query($sql);
+                $sql = "UPDATE users SET beschreibung = '" . $userDesription . "' where id = '" . $user_id . "'";
+                $conn->query($sql);
 
-    echo ('Description in DB eingefügt');
+                echo ('Description in DB eingefügt');
 
-    }
-        
+                }
+                    
     // else{
     //     // echo ('false');
     // }
 
 
 
-    if(isset($_POST["user_place"])){
-        // if(empty($_POST["user_place"])) {
-        //     // echo ('Bitte alle Felder ausfüllen');   
-        //     die();
-        // }
+            if(isset($_POST["user_place"]) AND isset($_POST["user_id"])){
+                //if(empty($_POST["user_place"]) AND empty($_POST["user_id"]) {
+                //   echo ('Bitte alle Felder ausfüllen');   
+                //   die();
+                //}
 
-    $userPlace = $_POST["user_place"];
+            $userPlace = $_POST["user_place"];
+            $user_id = $_POST["user_id"];
 
-    $sql = "UPDATE users SET wohnort = '" . $userPlace . "'";
+            $sql = "UPDATE users SET wohnort = '" . $userPlace . "' where id = '" . $user_id . "'";
 
-    $conn->query($sql);
+            $conn->query($sql);
 
-    echo ('Wohnort in DB eingefügt');
+            echo ('Wohnort in DB eingefügt');
 
-    }
+            }
 
     // else{
     //     // echo ('false');
     // }
+    
+    
+    
+    if(isset($_POST["gender"]) AND isset($_POST["auswahl"])){
+                $gender = $_POST["gender"];
+                $auswahl = $_POST["auswahl"];
+                
+                //Category: WOMAN
+                    
+                //WOMAN-ALL
+                
+                if($gender == 'woman' and $auswahl == 'allesanzeigen'){
+
+                    $sql = "SELECT beschreibung from klamotten_damen where id = 1";
+                    $result_info = 
+                    $conn->query($sql);
+                    
+                    $woman_all =  array("woman_all"=>array());
+                    
+                    while($row_info = $result_info ->fetch_assoc()){
+                        array_push($woman_all["woman_all"] , $row_info); 
+                    }
+                    echo json_encode($woman_all);
+                }
+
+                else{
+
+                }
+
+            }
+
+
 
       //---verbindung schließen
       $conn->close();
