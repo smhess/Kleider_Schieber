@@ -18,15 +18,15 @@
         // echo "Connected successfully";
 
     if(isset($_POST["login_nutzername"]) AND isset($_POST['login_passwort']) ){
-        if(empty($_POST["login_nutzername"]) OR empty($_POST["login_passwort"])) {
-            echo ('Bitte alle Felder ausfüllen');   
-            die();
-        }
+        // if(empty($_POST["login_nutzername"]) OR empty($_POST["login_passwort"])) {
+        //     echo ('Bitte alle Felder ausfüllen');   
+        //     die();
+        // }
 
     $username = $_POST["login_nutzername"];
     $password = $_POST["login_passwort"];
 
-    $sql = "SELECT count(*) FROM users WHERE(username='$username' AND password='$password')";
+    $sql = "SELECT count(*) FROM users WHERE(username='" . $username . "' AND password='" . $password . "')";
 
     $result = $conn->query($sql);
     $row = $result->fetch_array(MYSQLI_NUM);
@@ -35,7 +35,7 @@
 
 
 
-        $user_info = "SELECT * from users where username = '$username'";
+        $user_info = "SELECT * from users where username = '" . $username . "'";
         $result_info = $conn->query($user_info);
         $ans =  array("userInfo"=>array());
         
@@ -45,71 +45,47 @@
         echo json_encode($ans);
     
     }
+    else {
+        echo ('nutzername und passwort nicht vorhanden');
+    }
 }
-    else{
-        echo('kein nutzername oder passwort gesetzt');  //das ist die fehlermeldung 
-        die();
-    }
-
-
-
-
-    if(isset($_POST["register_nutzername"]) AND isset($_POST['register_passwort']) AND isset($_POST['register_email']) ){
-        if(empty($_POST["register_nutzername"]) OR empty($_POST["register_passwort"]) OR (empty($_POST["register_email"]) )) {
-            echo ('Bitte alle Felder ausfüllen');   
-            die();
-        }
-
-    $username = $_POST["register_nutzername"];
-    $email = $_POST["register_email"];
-    $password = $_POST["register_passwort"];
-
- 
-    $sql = "INSERT INTO users (username, email, password)
-    VALUES ('$username', '$email', '$password')";
-
-    $conn->query($sql);
-
-    echo ('true');
-
-    }
-        
-    else{
-        // echo ('false');
-    }
+    // else{
+    //     echo('kein nutzername oder passwort gesetzt');  //das ist die fehlermeldung 
+    //     die();
+    // }
 
 
 
     if(isset($_POST["user_Description"])){
-        if(empty($_POST["user_Description"])) {
-            // echo ('Bitte alle Felder ausfüllen');   
-            die();
-        }
+        // if(empty($_POST["user_Description"])) {
+        //     // echo ('Bitte alle Felder ausfüllen');   
+        //     die();
+        // }
 
     $userDesription = $_POST["user_Description"];
 
-    $sql = "UPDATE users SET beschreibung = $userDesription";
+    $sql = "UPDATE users SET beschreibung = '" . $userDesription . "' where id = ";
     $conn->query($sql);
 
     echo ('Description in DB eingefügt');
 
     }
         
-    else{
-        // echo ('false');
-    }
+    // else{
+    //     // echo ('false');
+    // }
 
 
 
     if(isset($_POST["user_place"])){
-        if(empty($_POST["user_place"])) {
-            // echo ('Bitte alle Felder ausfüllen');   
-            die();
-        }
+        // if(empty($_POST["user_place"])) {
+        //     // echo ('Bitte alle Felder ausfüllen');   
+        //     die();
+        // }
 
     $userPlace = $_POST["user_place"];
 
-    $sql = "UPDATE users SET wohnort = $userPlace";
+    $sql = "UPDATE users SET wohnort = '" . $userPlace . "'";
 
     $conn->query($sql);
 
@@ -117,9 +93,9 @@
 
     }
 
-    else{
-        // echo ('false');
-    }
+    // else{
+    //     // echo ('false');
+    // }
 
       //---verbindung schließen
       $conn->close();

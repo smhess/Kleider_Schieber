@@ -8,7 +8,7 @@ $(document).ready(function () {
     var email = '';
     var wohnort;
     var profilbild;
-
+    var userID;
 
 
     $('body').click(function (evt) {
@@ -128,7 +128,10 @@ $(document).ready(function () {
                         
                         nutzername = msg.userInfo[0].username;
                         email = msg.userInfo[0].email;
-                          getProfileSide(nutzername , email);
+                        wohnort = msg.userInfo[0].wohnort;
+                        beschreibung = msg.userInfo[0].beschreibung;
+                        profilbild = "C:\Users\hesss\Pictures\0\Unbenannt.png";
+                          getProfileSide(nutzername , email, wohnort, profilbild, beschreibung);
                           
                       },
                       error: function (eins, zwei, err) {
@@ -155,7 +158,7 @@ $(document).ready(function () {
                 
                   $.ajax({
                       type: 'POST',
-                      url: 'login.php',
+                      url: 'register.php',
                       data: {
                       register_nutzername : registerNutzername,
                       register_passwort : registerPasswort,
@@ -203,10 +206,9 @@ $(document).ready(function () {
        console.log('bild auswahl geklickt');
        var test = $('.profile-image-overlay').val();
        console.log(test);
-       
-       
     });
-    $(document).on('click', '.more-button', function (event) {
+
+    $(document).on('click', '#EnterDescription', function (event) {
        $('#enterDescriptionToProfile').css('display', 'block');
        $('#enterDescriptionToProfile').val('');
        $(document).on('keypress',function(e) {
@@ -233,7 +235,7 @@ $(document).ready(function () {
        
     });
    
-    $(document).on('click', '.profile-more-button', function (event) {
+    $(document).on('click', '#EnterPlace', function (event) {
        $('#enterPlaceToDescription').css('display', 'block');
        $('#enterPlaceToDescription').val('');
        $(document).on('keypress',function(e) {
@@ -264,6 +266,61 @@ $(document).ready(function () {
     $(document).on('click', '#ProfilSide', function (event) {
         getProfileSide(nutzername , email );
      });
+
+
+    $(document).on('click', '.promotion', function (event) {
+        $('#KleidungHochladen').css('display', 'flex');
+
+     });
+
+     $(document).on('click', '#ButtonKleidungHochladen', function (event) {
+        var profilbild = $('.KleidungsBild').val();
+        var profilbild2 = profilbild.substr(12, 19);
+        // var größe = 
+        var preis = $('#Preis').val();
+        var beschreibung = $('#KleiderBeschreibung').val();
+
+        console.log(profilbild2, beschreibung, preis);
+        var KleiderContainer = getKleiderContainer(profilbild2, preis, '' , beschreibung);
+
+        $('#posts-wrapper').append(KleiderContainer);
+        $('#KleidungHochladen').css('display', 'none');
+
+
+        $.ajax({
+            type: 'POST',
+            url: 'login.php',
+            data: {
+           user_id : userID,
+           Kleider_profilbild : profilbild2,
+           Kleider_größe : größe,
+           Kleider_preis : größe,
+           Kleider_beschreibung : beschreibung
+            },
+            success: function (msg) {
+                console.log(msg);
+                
+            },
+            error: function (eins, zwei, err) {
+                console.log(eins + " " + zwei + " " + err)
+            }
+        });
+        
+
+     });
+
+     function getKleiderContainer(bild, preis, größe, beschreibung){
+        var render = "";
+        render = render + '<div class="post-wrapper">';
+        render = render + '<img class="post-image" src="' + bild + '">';
+        render = render + '<div class="post-text-wrapper">';
+        render = render + '<p class="price">' + preis + '</p>';
+        render = render + '<p class="size">' + größe + '</p>';
+        render = render + '<p class="infoUserProduct">' + beschreibung + '</p>';
+        render = render + '</div>';
+        render = render + '</div>';
+    return render;
+     }
      
 
     function clear(){
@@ -272,12 +329,16 @@ $(document).ready(function () {
         });
     }
 
-    function getProfileSide(nutzername, email, bild, ){
+    function getProfileSide(nutzername, email, wohnort, profilbild, beschreibung){
         console.log(nutzername, email);
         $('#ProfileSite').siblings().hide();
         $('#ProfileSite').show();
         $('#displayMailOnProfilet').html(email);
         $('.username').html(nutzername);
+        $('.ÜberMichWohnort').html(wohnort);
+        $('.description').html(beschreibung);
+        $('.profile-image').css("background-image", "url(profilbild1.png)");
+
     }
 
 

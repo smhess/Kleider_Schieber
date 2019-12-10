@@ -537,13 +537,11 @@ margin-left: 10px;
 
 .post-image {
     width: 100%;
-    padding-top: 150%;
-
+    height: 52%;
+    padding-top: 28%;
     border-radius: 8px;
-
     background-position: center;
     background-size: cover;
-    background-image: url("profile-image.jpg");
 }
 
 .post-text-wrapper {
@@ -605,6 +603,34 @@ button:hover {
 
     padding: 12px;
     margin-left: 8px;
+}
+
+#KleidungHochladen {
+    /* display: flex; */
+    flex-direction: column;
+    border: 1px solid #ebedee;
+    border-radius: 8px;
+    margin: 16px;
+    padding: 16px;
+    width: 100%;
+    display: none;
+}
+
+.KleidungHochladenItems{
+    margin-top: 22px;
+    margin-left: 15px;
+}
+#KleiderBeschreibung{
+    width: 250px;
+}
+
+#ButtonKleidungHochladen {
+    border: 2px solid var(--bg-colorTone);
+    padding: 12px;
+    border-radius: 22px;
+    color: var(--bg-colorTone);
+    cursor: pointer;
+    width: 190px;
 }
 
 

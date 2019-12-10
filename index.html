@@ -182,14 +182,12 @@
                     <section id="profile">
             
                       <div class="profile-image">
+                         <!-- <img src="profilbild.jpg" class="profile-image"> -->
                         <input type="file" name="filename" accept="image/gif, image/jpeg, image/png" class="profile-image-overlay">
-                          <!-- <i class="fas fa-camera"></i> -->
-                          <!-- <p class="profile-image-overlay-text">Bild hochladen</p> -->
-                        <!-- </div> -->
                       </div>
             
                       <section class="profile-description border">
-                        <button class="more-button"><i class="fas fa-edit"></i></button>
+                        <button class="more-button" id="EnterDescription"><i class="fas fa-edit"></i></button>
                         <p class="username"></p>
                         <p class="description"></p>
                         <input id="enterDescriptionToProfile" placeholder="Beschreibung hinzufügen + Enter drücken" type="text" name="beschreibung" >
@@ -218,7 +216,7 @@
                       </section>
             
                       <section class="profile-information border">
-                        <button class="profile-more-button"><i class="fas fa-edit"></i></button>
+                        <button class="profile-more-button" id="EnterPlace"><i class="fas fa-edit"></i></button>
                         <p class="secondary-title">Über mich</p>
                         <div class="icon-text-wrapper">
                           <i class="fas fa-map-marker-alt"></i>
@@ -250,6 +248,32 @@
                       </div>
                       <p class="title posts-count">0 Artikel</p>
                       <div id="posts-wrapper">
+
+                        <div id="KleidungHochladen">
+                            <div id="ProfilbildHochladen" class="KleidungHochladenItems">
+                                    Profilbild hinzufügen:  <input type="file" name="filename" accept="image/gif, image/jpeg, image/png" class="KleidungsBild">
+                            </div>
+                            <div id="GrößeHochladen" class="KleidungHochladenItems">
+                                    <label>Größe:
+                                            <select name="top5">
+                                              <option>XS</option>
+                                              <option>S</option>
+                                              <option>M</option>
+                                              <option>L</option>
+                                              <option>XL</option>
+                                            </select>
+                                    </label>
+                            </div>
+                            <div id="PreisHochladen" class="PreisHochladen">
+                                    Preis hinzufügen:  <input type="text" id="Preis" placeholder="Preis hinzufügen">
+                            </div>
+                            <div id="BeschreibungHochladen" class="KleidungHochladenItems">
+                                    Beschreibung hinzufügen:  <input type="text" id="KleiderBeschreibung" placeholder="Beschreibung hinzufügen">
+                            </div>
+                            <div id="ButtonKleidungHochladen" class="KleidungHochladenItems">Kleidungsstück hinzufügen</div>
+                                
+                        </div>
+
                         
                           <!-- <div class="post-wrapper">
                               <img class="post-image">
