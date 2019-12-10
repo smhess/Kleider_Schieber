@@ -294,7 +294,7 @@ $(document).ready(function () {
            user_id : userID,
            Kleider_profilbild : profilbild2,
            Kleider_größe : größe,
-           Kleider_preis : größe,
+           Kleider_preis : preis,
            Kleider_beschreibung : beschreibung
             },
             success: function (msg) {
@@ -324,7 +324,7 @@ $(document).ready(function () {
      
 
     function clear(){
-        $("#RegistrationForm :input").each( function(){
+        $("#RegistrationForm :input").each( function(){ 
             $(this).val("");
         });
     }
