@@ -462,9 +462,9 @@ $(document).ready(function () {
     //     // $('#RegistrationSide').css('display', 'none');
 
     // });
-    $(document).on('click', '.profile-image-overlay', function (event) {
+    $(document).on('click', '.profile-image', function (event) {
        console.log('bild auswahl geklickt');
-       var test = $('.profile-image-overlay').val();
+       var test = $('#profilbild').val();
        console.log(test);
     });
 
@@ -526,7 +526,7 @@ $(document).ready(function () {
     });
 
     $(document).on('click', '#ProfilSide', function (event) {
-        getProfileSide(nutzername , email );
+        getProfileSide(nutzername , email, wohnort, profilbild, beschreibung);
      });
 
 
@@ -538,11 +538,13 @@ $(document).ready(function () {
      $(document).on('click', '#ButtonKleidungHochladen', function (event) {
         var profilbild = $('.KleidungsBild').val();
         var profilbild2 = profilbild.substr(12, 19);
-        // var größe = 
+        var größe =  $('#GrößeHochladen').val();
         var preis = $('#Preis').val();
         var beschreibung = $('#KleiderBeschreibung').val();
+        var kategorie = $('#KategorieAngeben').val();
+        var gender = $('#GenderAngeben').val();
 
-        console.log(profilbild2, beschreibung, preis);
+        console.log(profilbild2, beschreibung, preis, größe, kategorie);
         var KleiderContainer = getKleiderContainer(profilbild2, preis, '' , beschreibung);
 
         $('#posts-wrapper').append(KleiderContainer);
@@ -557,7 +559,9 @@ $(document).ready(function () {
            Kleider_profilbild : profilbild2,
            Kleider_größe : größe,
            Kleider_preis : preis,
-           Kleider_beschreibung : beschreibung
+           Kleider_beschreibung : beschreibung,
+           Kleider_kategorie : kategorie,
+           Kleider_gender : gender
             },
             success: function (msg) {
                 console.log(msg);

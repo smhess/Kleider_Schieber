@@ -183,7 +183,7 @@
             
                       <div class="profile-image">
                          <!-- <img src="profilbild.jpg" class="profile-image"> -->
-                        <input type="file" name="filename" accept="image/gif, image/jpeg, image/png" class="profile-image-overlay">
+                        <input type="file" name="filename" accept="image/gif, image/jpeg, image/png" class="profile-image-overlay" id="profilbild">
                       </div>
             
                       <section class="profile-description border">
@@ -253,9 +253,9 @@
                             <div id="ProfilbildHochladen" class="KleidungHochladenItems">
                                     Profilbild hinzufügen:  <input type="file" name="filename" accept="image/gif, image/jpeg, image/png" class="KleidungsBild">
                             </div>
-                            <div id="GrößeHochladen" class="KleidungHochladenItems">
+                            <div class="KleidungHochladenItems">
                                     <label>Größe:
-                                            <select name="top5">
+                                            <select id="GrößeHochladen" name="top5">
                                               <option>XS</option>
                                               <option>S</option>
                                               <option>M</option>
@@ -264,11 +264,30 @@
                                             </select>
                                     </label>
                             </div>
-                            <div id="PreisHochladen" class="PreisHochladen">
+                            <div id="PreisHochladen" class="KleidungHochladenItems">
                                     Preis hinzufügen:  <input type="text" id="Preis" placeholder="Preis hinzufügen">
                             </div>
                             <div id="BeschreibungHochladen" class="KleidungHochladenItems">
                                     Beschreibung hinzufügen:  <input type="text" id="KleiderBeschreibung" placeholder="Beschreibung hinzufügen">
+                            </div>
+                            <div class="KleidungHochladenItems">
+                                    <label>Bitte geben Sie ein Geschlecht an:
+                                            <select id="GenderAngeben" name="top3">
+                                              <option>Oberteile</option>
+                                              <option>Unterteile</option>
+                                              <option>Schuhe</option>
+                                              <option>Accesoirs & Taschen</option>
+                                            </select>
+                                    </label>
+                            </div>
+                            <div class="KleidungHochladenItems">
+                                    <label>Bitte geben Sie eine Kategorie an:
+                                            <select id="KategorieAngeben" name="top3">
+                                              <option>Männer</option>
+                                              <option>Frauen</option>
+                                              <option>Kinder</option>
+                                            </select>
+                                    </label>
                             </div>
                             <div id="ButtonKleidungHochladen" class="KleidungHochladenItems">Kleidungsstück hinzufügen</div>
                                 
