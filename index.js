@@ -66,18 +66,259 @@ $(document).ready(function () {
         $('#men').css('color', 'var(--grey-tone)');
         $('#child').css('color', 'var(--grey-tone)');
         $('#genderSelected').show();
+        $(document).on('click', '#AllesAnzeigen', function (event) {
+            $.ajax({
+                type: 'POST',
+                url: 'login.php',
+                data: {
+                gender : 'woman',
+                auswahl : 'allesanzeigen'
+                },
+                success: function (msg) {
+                    console.log(msg);
+                },
+                error: function (eins, zwei, err) {
+                    console.log(eins + " " + zwei + " " + err)
+                }
+            });
+        });
+        $(document).on('click', '#Oberteile', function (event) {
+            $.ajax({
+                type: 'POST',
+                url: 'login.php',
+                data: {
+                    gender : 'woman',
+                    auswahl : 'oberteile'
+                },
+                success: function (msg) {
+                    console.log(msg);
+                },
+                error: function (eins, zwei, err) {
+                    console.log(eins + " " + zwei + " " + err)
+                }
+            });
+        });
+        $(document).on('click', '#Unterteile', function (event) {
+            $.ajax({
+                type: 'POST',
+                url: 'login.php',
+                data: {
+                    gender : 'woman',
+                    auswahl : 'unterteile'
+                },
+                success: function (msg) {
+                    console.log(msg);
+                },
+                error: function (eins, zwei, err) {
+                    console.log(eins + " " + zwei + " " + err)
+                }
+            });
+        });
+        $(document).on('click', '#Schuhe', function (event) {
+            $.ajax({
+                type: 'POST',
+                url: 'login.php',
+                data: {
+                    gender : 'woman',
+                    auswahl : 'schuhe'
+                },
+                success: function (msg) {
+                    console.log(msg);
+                },
+                error: function (eins, zwei, err) {
+                    console.log(eins + " " + zwei + " " + err)
+                }
+            });
+        });
+        $(document).on('click', '#AccesoirsTaschen', function (event) {
+            $.ajax({
+                type: 'POST',
+                url: 'login.php',
+                data: {
+                    gender : 'woman',
+                    auswahl : 'accesoirstaschen'
+                },
+                success: function (msg) {
+                    console.log(msg);
+                },
+                error: function (eins, zwei, err) {
+                    console.log(eins + " " + zwei + " " + err)
+                }
+            });
+        });
     });
     $(document).on('click', '#men', function (event) {
         $('#men').css('color', 'var(--bg-colorTone)');
         $('#child').css('color', 'var(--grey-tone)');
         $('#woman').css('color', 'var(--grey-tone)');
         $('#genderSelected').show();
+
+        $(document).on('click', '#AllesAnzeigen', function (event) {
+            $.ajax({
+                type: 'POST',
+                url: 'login.php',
+                data: {
+                gender : 'men',
+                auswahl : 'allesanzeigen'
+                },
+                success: function (msg) {
+                    console.log(msg);
+                },
+                error: function (eins, zwei, err) {
+                    console.log(eins + " " + zwei + " " + err)
+                }
+            });
+        });
+        $(document).on('click', '#Oberteile', function (event) {
+            $.ajax({
+                type: 'POST',
+                url: 'login.php',
+                data: {
+                gender : 'men',
+                auswahl : 'oberteile'
+                },
+                success: function (msg) {
+                    console.log(msg);
+                },
+                error: function (eins, zwei, err) {
+                    console.log(eins + " " + zwei + " " + err)
+                }
+            });
+        });
+        $(document).on('click', '#Unterteile', function (event) {
+            $.ajax({
+                type: 'POST',
+                url: 'login.php',
+                data: {
+                gender : 'men',
+                auswahl : 'unterteile'
+                },
+                success: function (msg) {
+                    console.log(msg);
+                },
+                error: function (eins, zwei, err) {
+                    console.log(eins + " " + zwei + " " + err)
+                }
+            });
+        });
+        $(document).on('click', '#Schuhe', function (event) {
+            $.ajax({
+                type: 'POST',
+                url: 'login.php',
+                data: {
+                gender : 'men',
+                auswahl : 'schuhe'
+                },
+                success: function (msg) {
+                    console.log(msg);
+                },
+                error: function (eins, zwei, err) {
+                    console.log(eins + " " + zwei + " " + err)
+                }
+            });
+        });
+        $(document).on('click', '#AccesoirsTaschen', function (event) {
+            $.ajax({
+                type: 'POST',
+                url: 'login.php',
+                data: {
+                gender : 'men',
+                auswahl : 'accesoirstaschen'
+                },
+                success: function (msg) {
+                    console.log(msg);
+                },
+                error: function (eins, zwei, err) {
+                    console.log(eins + " " + zwei + " " + err)
+                }
+            });
+        });
     });
     $(document).on('click', '#child', function (event) {
         $('#child').css('color', 'var(--bg-colorTone)');
         $('#woman').css('color', 'var(--grey-tone)');
         $('#men').css('color', 'var(--grey-tone)');
         $('#genderSelected').show();
+        $(document).on('click', '#AllesAnzeigen', function (event) {
+            $.ajax({
+                type: 'POST',
+                url: 'login.php',
+                data: {
+                gender : 'child',
+                auswahl : 'allesanzeigen'
+                },
+                success: function (msg) {
+                    console.log(msg);
+                },
+                error: function (eins, zwei, err) {
+                    console.log(eins + " " + zwei + " " + err)
+                }
+            });
+        });
+        $(document).on('click', '#Oberteile', function (event) {
+            $.ajax({
+                type: 'POST',
+                url: 'login.php',
+                data: {
+                gender : 'child',
+                auswahl : 'oberteile'
+                },
+                success: function (msg) {
+                    console.log(msg);
+                },
+                error: function (eins, zwei, err) {
+                    console.log(eins + " " + zwei + " " + err)
+                }
+            });
+        });
+        $(document).on('click', '#Unterteile', function (event) {
+            $.ajax({
+                type: 'POST',
+                url: 'login.php',
+                data: {
+                gender : 'child',
+                auswahl : 'unterteile'
+                },
+                success: function (msg) {
+                    console.log(msg);
+                },
+                error: function (eins, zwei, err) {
+                    console.log(eins + " " + zwei + " " + err)
+                }
+            });
+        });
+        $(document).on('click', '#Schuhe', function (event) {
+            $.ajax({
+                type: 'POST',
+                url: 'login.php',
+                data: {
+                gender : 'child',
+                auswahl : 'schuhe'
+                },
+                success: function (msg) {
+                    console.log(msg);
+                },
+                error: function (eins, zwei, err) {
+                    console.log(eins + " " + zwei + " " + err)
+                }
+            });
+        });
+        $(document).on('click', '#AccesoirsTaschen', function (event) {
+            $.ajax({
+                type: 'POST',
+                url: 'login.php',
+                data: {
+                gender : 'child',
+                auswahl : 'accesoirstaschen'
+                },
+                success: function (msg) {
+                    console.log(msg);
+                },
+                error: function (eins, zwei, err) {
+                    console.log(eins + " " + zwei + " " + err)
+                }
+            });
+        });
     });
 
     /**
