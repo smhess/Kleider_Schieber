@@ -371,7 +371,8 @@ $(document).ready(function () {
                         email = msg.userInfo[0].email;
                         wohnort = msg.userInfo[0].wohnort;
                         beschreibung = msg.userInfo[0].beschreibung;
-                        profilbild = "C:\Users\hesss\Pictures\0\Unbenannt.png";
+                        beschreibung = msg.userInfo[0].id;
+                        profilbild = "";
                           getProfileSide(nutzername , email, wohnort, profilbild, beschreibung);
                           
                       },
@@ -412,6 +413,18 @@ $(document).ready(function () {
                             $('.LoginProfile').html('Profilseite');
                             $('.LoginProfile').attr("id","ProfilSide");
                           }
+
+                          if (msg.hasOwnProperty('userInfo')) {
+                            console.log(msg.userInfo);
+                            
+                        };
+                        
+                        nutzername = msg.userInfo[0].username;
+                        email = msg.userInfo[0].email;
+                        wohnort = msg.userInfo[0].wohnort;
+                        beschreibung = msg.userInfo[0].beschreibung;
+                        beschreibung = msg.userInfo[0].id;
+                        profilbild = "";
                           
                           getProfileSide(registerNutzername , registerEmaill );
                           
@@ -462,6 +475,7 @@ $(document).ready(function () {
             type: 'POST',
             url: 'login.php',
             data: {
+            user_id : userID,
             user_Description : describtionValue
             },
             success: function (msg) {
@@ -489,6 +503,7 @@ $(document).ready(function () {
             type: 'POST',
             url: 'login.php',
             data: {
+                user_id : userID,
            user_place : PlaceValue
             },
             success: function (msg) {
