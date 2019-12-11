@@ -593,6 +593,27 @@ $(document).ready(function () {
         }
     });
 
+    $(document).on('change', '#profilbild', function() {
+        var bild = $('#profilbild').val();
+        bild = bild.substr(12, 19);
+        console.log(bild);
+        $('#profileImage').attr('src', bild)
+        profilbild = bild;
+        $.ajax({
+            type: 'POST',
+            url: 'login.php',
+            data: {
+            user_id : userID,
+            user_Profilbild : profilbild
+            },
+            success: function (msg) {
+                console.log(msg);
+            },
+            error: function (eins, zwei, err) {
+                console.log(eins + " " + zwei + " " + err)
+            }
+        });
+       });
     // $(document).on('click', '#SelectLogin', function (event) {
     //     $('#mitte').css('display', 'none');
     //     $('#container').css('display', 'flex');
@@ -604,6 +625,7 @@ $(document).ready(function () {
        console.log('bild auswahl geklickt');
        var test = $('#profilbild').val();
        console.log(test);
+       
     });
 
     $(document).on('click', '#EnterDescription', function (event) {
@@ -714,6 +736,7 @@ $(document).ready(function () {
             });
         
         }
+       
 
         else {
             console.log('nicht alles eingegeben');
@@ -723,6 +746,8 @@ $(document).ready(function () {
         
 
      });
+
+  
 
      function getKleiderContainer(bild, preis, größe, beschreibung){
          console.log(bild, preis, größe, beschreibung);
