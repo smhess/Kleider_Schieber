@@ -1,0 +1,649 @@
+/* author Sarah Hess */
+body{
+    margin-top: 0px;
+}
+:root{
+    --bg-colorTone: #9f4141;
+    --grey-tone: #cccccc;
+    --dark-greyTone: #585858;
+}
+#fixedHeader{
+    position: fixed;
+    width: 100%;
+    background-color: white;
+    z-index: 50;
+}
+/* --------------------------------------------nav bar mit suche überschrift und registration----------------------------------------------- */
+#navBar {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid var(--grey-tone);
+    height: 80px;
+}
+#headline{
+    width: 50%;
+    align-items: center;
+    /* justify-content: center; */
+    display: flex;
+}
+#search1, #headline, #login {
+    justify-content: center;
+}
+#login{
+    /* justify-content: center; */
+    align-items: center;
+}
+.LoginProfile{
+    border: 2px solid var(--bg-colorTone);
+    padding: 12px;
+    border-radius: 22px;
+    color: var(--bg-colorTone);
+    cursor: pointer;
+}
+.navSections{
+    width: 14%;
+    display: flex;
+}
+#kleiderSchieber{
+    color: var(--bg-colorTone);
+    font-size: 35px;
+    font-weight: 600;
+    cursor: pointer;
+}
+#help{
+    align-items: center;
+}
+#aboutKleiderSchieberButton{
+    border: 2px solid var(--bg-colorTone);
+    padding: 12px;
+    border-radius: 22px;
+    background-color: var(--bg-colorTone);
+    color: white;
+    cursor: pointer;
+}
+/* form{
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    transition: all 1s;
+    width: 50px;
+    height: 50px;
+    background: var(--grey-tone);
+    box-sizing: border-box;
+    border-radius: 25px;
+    border: 4px solid white;
+    padding: 5px;
+} */
+
+#SearchInput{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;;
+    height: 42.5px;
+    line-height: 30px;
+    outline: 0;
+    border: 1px solid var(--grey-tone);
+    display: none;
+    font-size: 1em;
+    border-radius: 20px;
+    padding: 0 20px;
+}
+
+.fa{
+    box-sizing: border-box;
+    padding: 10px;
+    width: 42.5px;
+    height: 42.5px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 50%;
+    color: white;
+    text-align: center;
+    font-size: 1.2em;
+    transition: all 1s;
+}
+
+/* form:hover{
+    width: 200px;
+    cursor: pointer;
+}
+
+form:hover input{
+    display: block;
+}
+
+form:hover .fa{
+    background: var(--grey-tone);
+    color: white;
+} */
+
+/* ------------------------------Seite mit inforamtionen über Kleider Schieber--------------------------------------------------------- */
+
+#AboutKleiderSchieber{
+    display: none;
+    position: absolute;
+    margin-top: 160px;
+    width: 98%;
+}
+#AboutContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#AboutHeader1 {
+    text-align: center;
+    font-size: 35px;
+    color: var(--bg-colorTone);
+    
+}
+#AboutHeaderSubtitle{
+    text-align: center;
+    font-size: 20px;
+    margin-top: 20px;
+    color: var(--dark-greyTone);
+}
+.stepImages{
+height: 200px;
+margin-left: 10px;
+}
+#stepsSections{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 20px;
+}
+.StepContainer{
+    display: flex;
+    flex-direction: column;
+}
+#stepsHeadline{
+    font-size: 25px;
+    color: var(--dark-greyTone);
+}
+#stepsSellButton{
+    margin-top: 30px;
+    text-align: center;
+    border: 2px solid var(--bg-colorTone);
+    padding: 12px;
+    border-radius: 22px;
+    background-color: var(--bg-colorTone);
+    color: white;
+    cursor: pointer;
+    width: 120px;
+    margin-left: 41%;
+}
+
+
+/* ------------------------------aufwahl mann frau oder kind--------------------------------------------------------- */
+
+#genderSelection{
+    height: 40px;
+    border-bottom: 1px solid var(--grey-tone);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    color: var(--grey-tone);
+    cursor: pointer;
+}
+.gender{
+    padding-left: 50px;
+    padding-right: 50px;
+}
+/*----------------------------------------- Startseite der webseite--------------------------------------------------- */
+#mitte{
+    position: absolute;
+    margin-top: 120px;
+    height: 100%;
+}
+#Startseite{
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+}
+.StartseiteSides{
+    width: 50%;
+}
+#pictureStartseite{
+    width: 100%;
+}
+#DescriptionKleiderSchieber{
+    text-align: center;
+    font-size: 55px;
+    margin-top: 10%;
+   
+}
+.SellNow{
+    text-align: center;
+    border-bottom: 2px solid var(--bg-colorTone);
+    padding: 12px;
+    /* cursor: pointer; */
+    width: 248px;
+    margin-left: 34%;
+    margin-top: 5%;
+}
+/*----------------------------------------- Login/Registrieren--------------------------------------------------- */
+#LoginRegistrationPlugin{
+    display: none;
+    background-color: var(--bg-colorTone);
+    height: 50%;
+    width: 20%;
+    position: absolute;
+    margin-left: 40%;
+    margin-top: 170px;
+    z-index: 10;
+    -webkit-box-shadow: 0px 0px 65px -19px rgba(140,140,140,1);
+    -moz-box-shadow: 0px 0px 65px -19px rgba(140,140,140,1);
+    box-shadow: 0px 0px 65px -19px rgba(140,140,140,1);
+    color: white;
+    position: fixed;
+}
+#LoginContent{
+    color: white;
+    margin-top: 15%;
+    /* margin-left: 7%; */
+    /* font-size: 20px; */
+    padding: 25px;
+}
+#LoginContentHeadline{
+    font-size: 26px;
+    text-align: center;
+}
+#LoginContentSubtitle{
+    font-size: 15px;
+    text-align: center;
+    margin-top: 15px;
+}
+#SelectLoginOrRegistration{
+    display: flex;
+    flex-direction: row;
+    margin-top: 90px;
+}
+.SelectLR{
+    width: 50%;
+    text-align: center;
+    cursor: pointer;
+}
+#SelectLogin{
+    border-right: 1.5px solid var(--grey-tone);
+    
+}
+
+.CloseRegistrationLogin{
+    width: 26px;
+    float: right;
+    padding: 8px;
+    color: white;
+    cursor: pointer;
+}
+
+/* -------------------------login/registrieren neue Seite---------------------------------- */
+
+.LoginRegister {
+    background-color: white;
+    /* opacity: 0.5; */
+    border-width: 0.1px;
+    border-style: solid;
+    border-color: var(--grey-tone);
+    justify-content: center;
+    width: 450px;
+    height: 400px;
+}
+#test{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.LRContainer {
+    margin-top: 170px;
+    position: absolute;
+    width: 98%;
+    display: none;
+}
+
+.login_register_variables {
+    display:flex;
+    justify-content: center;
+    margin-top: 13px;
+
+}
+
+#heading_login {
+    color: var(--dark-greyTone);
+}
+
+#login_button {
+    background-color: var(--bg-colorTone);
+    color: white;
+    border-style: none;
+    border-radius: 10px;
+}
+
+.problem_messages {
+    color: var(--bg-colorTone);
+}
+
+.LRinput {
+    border: 0;
+    outline: 0;
+    background: transparent;
+    border-bottom: 1px solid black;
+}
+
+/*----------------------------------------- Auswahl Mann, Frau, Kind--------------------------------------------------- */
+.genderSelected{
+    z-index: 10;
+    display: none;
+    width: 30%;
+    height: auto;
+    text-align: center;
+    background-color: white;
+    position: absolute;
+    margin-left: 35%;
+    margin-top: 120px;
+    -webkit-box-shadow: 0px 72px 65px -40px rgba(156,154,156,1);
+    -moz-box-shadow: 0px 72px 65px -40px rgba(156,154,156,1);
+    box-shadow: 0px 72px 65px -40px rgba(156,154,156,1);
+    position: fixed;
+}
+.genderItemSelected{
+    cursor: pointer;
+    margin-top: 25px;
+    border-bottom: 1.5px solid var(--grey-tone);
+    padding-bottom: 19px;
+    color: var(--bg-colorTone);
+}
+
+.flex-container {
+    width: 100%;
+    height: 100%;
+
+    max-width: 1200px;
+    margin: 0 auto;
+
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+/*----------------------------------------- Profil Seite --------------------------------------------------- */
+
+#ProfileSite{
+    display:none;
+    margin-top: 120px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+#profile {
+    width: 375px;
+}
+
+.profile-image {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    /* padding-top: 100%; */
+    margin-bottom: 12px;
+    border-radius: 8px;
+    background-position: center;
+    background-size: cover;
+    border: 1px solid #ebedee;
+    border-radius: 8px;
+    /* background-image: url("profilbild.jpg"); */
+}
+
+#enterDescriptionToProfile, #enterPlaceToDescription{
+    display:none;
+    border: none;
+    width: 100%;
+}
+
+.profile-image-overlay {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.24);
+    opacity: 0;
+    transition: 0.5s opacity ease-out;
+}
+
+.profile-image-overlay:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.profile-image-overlay-text {
+    margin-top: 8px;
+}
+
+.more-button, .profile-more-button {
+    float: right;
+    font-size: 20px;
+    padding: 8px;
+    color: var(--grey-tone);
+}
+
+.username {
+    margin: 32px 0 8px 0;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.description {
+    font-size: 17px;
+    color: var(--grey-tone);
+}
+
+.profile-rating-wrapper {
+    display: flex;
+    padding: 8px 0;
+}
+
+.rating-star {
+    color: yellow !important;
+    width: 20px;
+    text-align: center;
+}
+
+.profile-rating-count {
+    flex: 1;
+    padding-left: 12px;
+}
+
+.icon-text-wrapper {
+    display: flex;
+    padding: 4px 0;
+}
+
+.icon-text-wrapper i {
+    text-align: center;
+    width: 20px;
+}
+
+.icon-text-wrapper-text {
+    margin-left: 6px;
+}
+
+.actions-wrapper {
+    display: flex;
+}
+
+.actions-wrapper button {
+    flex-basis: calc(50% - 8px);
+}
+
+#content {
+    flex: 1;
+}
+
+.promotion {
+    margin: 16px;
+    padding: 16px;
+}
+
+.promotion:hover {
+    cursor: pointer;
+    background-color: #F1F1F1;
+}
+
+.title {
+    font-size: 19px;
+}
+
+.secondary-title {
+    font-size: 15px;
+    color:var(--grey-tone);
+}
+
+.text {
+    color: lightgray;
+    font-size: 17px;
+}
+
+.posts-count {
+    padding: 24px 12px 12px 24px;
+}
+
+#posts-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+
+    padding: 8px;
+}
+
+.post-wrapper {
+    flex-shrink: 1;
+    flex-grow: 0;
+    flex-basis: calc(25% - 64px / 4);
+
+    margin: 0 8px 16px 8px;
+}
+
+.post-image {
+    width: 100%;
+    height: 52%;
+    padding-top: 28%;
+    border-radius: 8px;
+    background-position: center;
+    background-size: cover;
+}
+
+.post-text-wrapper {
+    padding: 12px;
+
+    font-size: 15px;
+}
+
+.price {
+    font-weight: 600;
+}
+
+.size, .infoUserProduct {
+    line-height: 18px;
+    color: var(--grey-tone);
+    font-size: 14px;
+}
+
+section {
+    margin-bottom: 12px;
+    padding: 16px;
+}
+
+.border {
+    border: 1px solid #ebedee;
+    border-radius: 8px;
+}
+
+.highlighted-text {
+    color: var(--bg-colorTone) !important;
+}
+
+button {
+    border: none;
+    background-color: transparent;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.outline-button {
+    color:var(--bg-colorTone);
+    border: 1px solid var(--bg-colorTone);
+    border-radius: 4px;
+
+    font-size: 17px;
+
+    padding: 12px;
+    margin-right: 8px;
+}
+
+.solid-button {
+    background-color: var(--bg-colorTone);
+    border-radius: 4px;
+    color: white;
+    
+    font-size: 17px;
+
+    padding: 12px;
+    margin-left: 8px;
+}
+
+#KleidungHochladen {
+    /* display: flex; */
+    flex-direction: column;
+    border: 1px solid #ebedee;
+    border-radius: 8px;
+    margin: 16px;
+    padding: 16px;
+    width: 100%;
+    display: none;
+}
+
+.KleidungHochladenItems{
+    margin-top: 22px;
+    margin-left: 15px;
+}
+#KleiderBeschreibung{
+    width: 250px;
+}
+
+#ButtonKleidungHochladen {
+    border: 2px solid var(--bg-colorTone);
+    padding: 12px;
+    border-radius: 22px;
+    color: var(--bg-colorTone);
+    cursor: pointer;
+    width: 190px;
+}
+
+#KleiderAnzeige{
+    display: none;
+    flex-wrap: wrap;
+    padding: 8px;
+    margin-top: 120px;
+    position: absolute;
+    margin-left: 120px;
+    margin-right: 120px;
+    width: 85%;
+}
+#KeineKleider{
+    margin-left: 40%;
+}
+
