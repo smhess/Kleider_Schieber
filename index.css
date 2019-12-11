@@ -120,7 +120,7 @@ form:hover .fa{
     color: white;
 } */
 
-/* ------------------------------Seite mit inforamtionen über Kleiderkreisel--------------------------------------------------------- */
+/* ------------------------------Seite mit inforamtionen über Kleider Schieber--------------------------------------------------------- */
 
 #AboutKleiderSchieber{
     display: none;
@@ -336,7 +336,7 @@ margin-left: 10px;
 }
 
 /*----------------------------------------- Auswahl Mann, Frau, Kind--------------------------------------------------- */
-#genderSelected{
+.genderSelected{
     z-index: 10;
     display: none;
     width: 30%;
@@ -389,14 +389,14 @@ margin-left: 10px;
     position: relative;
     overflow: hidden;
     width: 100%;
-    padding-top: 100%;
+    /* padding-top: 100%; */
     margin-bottom: 12px;
     border-radius: 8px;
     background-position: center;
     background-size: cover;
     border: 1px solid #ebedee;
     border-radius: 8px;
-    background-image: url("profilbild.jpg");
+    /* background-image: url("profilbild.jpg"); */
 }
 
 #enterDescriptionToProfile, #enterPlaceToDescription{
@@ -633,4 +633,17 @@ button:hover {
     width: 190px;
 }
 
+#KleiderAnzeige{
+    display: none;
+    flex-wrap: wrap;
+    padding: 8px;
+    margin-top: 120px;
+    position: absolute;
+    margin-left: 120px;
+    margin-right: 120px;
+    width: 85%;
+}
+#KeineKleider{
+    margin-left: 40%;
+}
 

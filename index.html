@@ -43,12 +43,12 @@
 
 
     <!-- Auswahl Männer Frauen oder Kinder Kleider -->
-    <div id="genderSelected">
-        <div class="genderItemSelected" id="AllesAnzeigen">Alles anzeigen</div>
-        <div class="genderItemSelected" id="Oberteile">Oberteile</div>
-        <div class="genderItemSelected" id="Unterteile">Unterteile</div>
-        <div class="genderItemSelected" id="Schuhe">Schuhe</div>
-        <div class="genderItemSelected" id="AccesoirsTaschen">Accessoirs & Taschen</div>
+    <div class="genderSelected">
+        <div class="genderItemSelected AllesAnzeigen" id="">Alles anzeigen</div>
+        <div class="genderItemSelected Oberteile" id="">Oberteile</div>
+        <div class="genderItemSelected Unterteile" id="">Unterteile</div>
+        <div class="genderItemSelected Schuhe" id="">Schuhe</div>
+        <div class="genderItemSelected AccesoirsTaschen" id="">Accessoirs & Taschen</div>
     </div>
 
     <!-- Plugin das geöffnet wird bei klick auf registrieren/anmelden -->
@@ -175,6 +175,12 @@
                 </div>
             </div>
 
+            <!---------------------------- Anzeige Kleidung  ---------------------------------->
+
+            <div id="KleiderAnzeige">
+            
+            </div>
+
             <!---------------------------- Profil Seite  ---------------------------------->
 
             <div id="ProfileSite">
@@ -182,8 +188,9 @@
                     <section id="profile">
             
                       <div class="profile-image">
-                         <!-- <img src="profilbild.jpg" class="profile-image"> -->
-                        <input type="file" name="filename" accept="image/gif, image/jpeg, image/png" class="profile-image-overlay" id="profilbild">
+                         <img src="profilbild.jpg" id="profileImage">
+                        <!-- <input type="file" name="filename" accept="image/gif, image/jpeg, image/png" class="profile-image-overlay" id="profilbild"> -->
+                        <!-- <div class="profile-image-overlay" id="BProfilbildHinzufügen">hinzufügen</div> -->
                       </div>
             
                       <section class="profile-description border">
@@ -246,21 +253,32 @@
                         <p class="title">Kleidungsstücke hochladen</p>
                         <p class="text">Hier klicken</p>
                       </div>
-                      <p class="title posts-count">0 Artikel</p>
+                      <!-- <p class="title posts-count">0 Artikel</p> -->
                       <div id="posts-wrapper">
 
                         <div id="KleidungHochladen">
                             <div id="ProfilbildHochladen" class="KleidungHochladenItems">
-                                    Profilbild hinzufügen:  <input type="file" name="filename" accept="image/gif, image/jpeg, image/png" class="KleidungsBild">
+                                    Bild hinzufügen:  <input type="file" name="filename" accept="image/gif, image/jpeg, image/png" class="KleidungsBild">
                             </div>
                             <div class="KleidungHochladenItems">
-                                    <label>Größe:
+                                    <label>Größe hinzufügen:
                                             <select id="GrößeHochladen" name="top5">
                                               <option>XS</option>
                                               <option>S</option>
                                               <option>M</option>
                                               <option>L</option>
                                               <option>XL</option>
+                                              <option>35</option>
+                                              <option>36</option>
+                                              <option>37</option>
+                                              <option>38</option>
+                                              <option>39</option>
+                                              <option>40</option>
+                                              <option>41</option>
+                                              <option>42</option>
+                                              <option>43</option>
+                                              <option>44</option>
+
                                             </select>
                                     </label>
                             </div>
@@ -271,8 +289,8 @@
                                     Beschreibung hinzufügen:  <input type="text" id="KleiderBeschreibung" placeholder="Beschreibung hinzufügen">
                             </div>
                             <div class="KleidungHochladenItems">
-                                    <label>Bitte geben Sie ein Geschlecht an:
-                                            <select id="GenderAngeben" name="top3">
+                                    <label>Bitte geben Sie eine Kategorie an:
+                                            <select id="KategorieAngeben" name="top3">
                                               <option>Oberteile</option>
                                               <option>Unterteile</option>
                                               <option>Schuhe</option>
@@ -281,8 +299,8 @@
                                     </label>
                             </div>
                             <div class="KleidungHochladenItems">
-                                    <label>Bitte geben Sie eine Kategorie an:
-                                            <select id="KategorieAngeben" name="top3">
+                                    <label>Bitte geben Sie ein Geschlecht an:
+                                            <select id="GenderAngeben" name="top3">
                                               <option>Männer</option>
                                               <option>Frauen</option>
                                               <option>Kinder</option>
