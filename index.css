@@ -646,4 +646,6 @@ button:hover {
 #KeineKleider{
     margin-left: 40%;
 }
-
+#profileImage{
+    width: 100%;
+}
