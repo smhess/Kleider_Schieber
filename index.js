@@ -432,9 +432,6 @@ $(document).ready(function () {
         else {
             $('#KleiderAnzeige').html('<p id="KeineKleider">Keine Kleidungsstücke dieser Rubrik</p>');
         }
-
-
-
     }
 
     /**
@@ -474,7 +471,7 @@ $(document).ready(function () {
                       success: function (msg) {
                           msg = JSON.parse(msg);
                           console.log(msg);
-                          
+
                           if (msg){
                             $('.LoginProfile').html('Profilseite');
                             $('.LoginProfile').attr("id","ProfilSide");
@@ -482,10 +479,7 @@ $(document).ready(function () {
                         
                           if (msg.hasOwnProperty('userInfo')) {
                             console.log(msg.userInfo);
-
                             var AUserInfo = msg.userInfo;
-                            // var laenge = msg.userInfo.length;
-                            // $('.posts-count').html(laenge + 'Artikel');
 
                             for (let index = 0; index < AUserInfo.length; index++) {
                                 
@@ -510,8 +504,11 @@ $(document).ready(function () {
                         email = msg.userInfo[0].email;
                         wohnort = msg.userInfo[0].wohnort;
                         beschreibung = msg.userInfo[0].users_beschreibung;
-                        userID = msg.userInfo[0].id;
+                        userID = msg.userInfo[0].id_user;
                         profilbild = msg.userInfo[0].users_bild;
+
+                        console.log('user id = ' , userID);
+                        
                       
                           getProfileSide(nutzername , email, wohnort, profilbild, beschreibung);
                           
@@ -565,9 +562,9 @@ $(document).ready(function () {
                         wohnort = msg.userInfo[0].wohnort;
                         beschreibung = msg.userInfo[0].beschreibung;
                         userID = msg.userInfo[0].id;
-                        profilbild = "";
+                        profilbild =  msg.userInfo[0].bild;
 
-                        console.log(userID);
+                        console.log('user id = ' , userID);
                         
                           
                           getProfileSide(registerNutzername , registerEmaill );
@@ -599,6 +596,7 @@ $(document).ready(function () {
         console.log(bild);
         $('#profileImage').attr('src', bild)
         profilbild = bild;
+        console.log('user id = ' , userID);
         $.ajax({
             type: 'POST',
             url: 'login.php',
@@ -621,12 +619,12 @@ $(document).ready(function () {
     //     // $('#RegistrationSide').css('display', 'none');
 
     // });
-    $(document).on('click', '.profile-image', function (event) {
-       console.log('bild auswahl geklickt');
-       var test = $('#profilbild').val();
-       console.log(test);
+    // $(document).on('click', '.profile-image', function (event) {
+    //    console.log('bild auswahl geklickt');
+    //    var test = $('#profilbild').val();
+    //    console.log(test);
        
-    });
+    // });
 
     $(document).on('click', '#EnterDescription', function (event) {
        $('#enterDescriptionToProfile').css('display', 'block');
@@ -705,6 +703,7 @@ $(document).ready(function () {
         var gender = $('#GenderAngeben').val();
 
         console.log(profilbild2, beschreibung, preis, größe, kategorie);
+        console.log('user id = ' , userID);
         
         if(profilbild && profilbild2 && größe && preis && beschreibung && kategorie && gender){
             
@@ -712,8 +711,7 @@ $(document).ready(function () {
 
             $('#posts-wrapper').append(KleiderContainer);
             $('#KleidungHochladen').css('display', 'none');
-    
-    
+        
             $.ajax({
                 type: 'POST',
                 url: 'login.php',
@@ -779,7 +777,7 @@ $(document).ready(function () {
         $('.username').html(nutzername);
         $('.ÜberMichWohnort').html(wohnort);
         $('.description').html(beschreibung);
-        // $('.profile-image').css("background-image", "url(profilbild1.png)");
+        $('#profileImage').attr('src', profilbild);
 
     }
 

@@ -533,6 +533,17 @@ isset($_POST["Kleider_gender"]) AND isset($_POST["Kleider_profilbild"])){
 }
 else{}
 
+    //Profilbild-User hinzufügen
+if(isset($_POST["user_id"]) AND isset($_POST["user_Profilbild"])){
+    $user_id = $_POST["user_id"];
+    $user_Profilbild = $_POST["user_Profilbild"];
+
+    $sql = "UPDATE users SET bild = '" . $user_Profilbild . "' where id = '" . $user_id . "'";
+    $conn->query($sql);
+    echo 'Profilbild-User eingefügt!';
+}
+else{}
+
       //---verbindung schließen
       $conn->close();
    
